@@ -1,0 +1,40 @@
+<h4 *ngIf="!permiteEdicao">Você não está autorizado a editar!</h4>
+
+<div class="row" *ngIf="permiteEdicao">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="placa">Placa</label>
+      <input type="text" 
+        class="form-control" 
+        id="placa" 
+        [(ngModel)]="veiculoAtualizado.placa">
+    </div>
+
+    <div class="form-group">
+      <label for="tipo">Tipo</label>
+      <select
+        class="form-control"
+        id="tipo"
+        [(ngModel)]="veiculoAtualizado.tipo">
+        <option value="Carro">Carro</option>
+        <option value="Caminhão">Caminhão</option>
+        <option value="Moto">Moto</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="situacao">Situação</label>
+      <select 
+        class="form-control" 
+        id="situacao"
+        [(ngModel)]="veiculoAtualizado.situacao">
+        <option value="Nada consta">Nada consta</option>
+        <option value="Multa">Multa</option>
+      </select>
+    </div>
+
+    <button
+      class="btn btn-primary"
+      (click)="atualizar()">Atualizar</button>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-primary" (click)="somentePares = !somentePares">Exibir {{ somentePares ?
+        'todos' : 'pares' }}</button>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-12">
+        <!-- <ul class="list-group" *ngIf="!somentePares"> -->
+        <ul class="list-group" *appUnless="somentePares">
+        <li class="list-group-item" 
+          *ngFor="let numero of numeros" 
+          [ngClass]="{par: numero % 2 == 0}"
+          [ngStyle]="{backgroundColor: numero % 2 === 0 ? 'black' : 'lightgrey'}">Número: {{numero}}</li>
+      </ul>
+
+      <ul class="list-group" *ngIf="somentePares">
+        <li class="list-group-item" *ngFor="let numero of numerosPares">Número: {{numero}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-12">
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchDefault>Value is Default</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-12">
+      <p appHighlight>Teste de highlight básico</p>
+      <p [appHighlightMelhorado]="'red'" [corDefault]="'yellow'">Teste de highlight melhorado</p>
+    </div>
+  </div>
+</div>

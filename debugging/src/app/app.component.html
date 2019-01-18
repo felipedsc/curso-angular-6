@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <app-teste></app-teste>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Debugging</h2>
+
+      <button class="btn btn-primary" (click)="adicionarLinha()">Adicionar linha</button>
+      <hr>
+      <div class="list-gropu">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"
+        *ngFor="let linha of linhas; let i = index" (click)="removerLinha(i)">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Linha</h5>
+            <small>{{linha}}</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

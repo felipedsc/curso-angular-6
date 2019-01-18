@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label>Nome do usuário</label>
+      <input tpe="text" class="form-control" #nomeUsuario>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label>Situação do usuário</label>
+      <select class="form-control" #situacaoUsuario>
+        <option value="ativo">Ativo</option>
+        <option value="inativo">Inativo</option>
+        <option value="desconhecido">Desconhecido</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <button type="button" class="btn btn-primary"
+     (click)="adicionarUsuario(nomeUsuario.value, situacaoUsuario.value)">Adicionar</button>
+  </div>
+</div>

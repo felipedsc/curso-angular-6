@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Cadastro de usuário</h2>
+    </div>
+    <div class="col-sm-6">
+      <label>Nome</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-sm-6">
+      <label>Login</label>
+      <input type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-sm-12 text-right">
+      <button type="button" class="btn btn-primary mr-2" (click)="adicionarUsuarioComum()">Adicionar Usuário</button>
+      <button type="button" class="btn btn-primary" (click)="adicionarAdministrador()">Adicionar Administrador</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card mt-2" *ngFor="let usuario of usuarios">
+        <div class="card-header">{{usuario.login}}</div>
+        <div class="card-body">
+          <h3>{{usuario.nome}}</h3>
+          <p>
+            <strong *ngIf="usuario.tipo == 'administrador'" style="color: green">Administrador</strong>
+            <em *ngIf="usuario.tipo == 'comum'" style="color: grey">Usuário comum</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

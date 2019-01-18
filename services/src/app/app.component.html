@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <app-novo-usuario></app-novo-usuario>
+      <hr>
+      
+      <!-- Inserir só depois -->
+      <div *ngIf="novoUsuarioAdicionado" class="alert alert-success" role="alert">
+        <strong>{{novoUsuarioAdicionadoMensagem}}</strong>
+      </div>
+
+      <app-usuarios
+        *ngFor="let usuario of usuarios; let i = index"
+          [usuario]="usuario"
+          [id]="i">
+      </app-usuarios>
+    </div>
+  </div>
+</div>

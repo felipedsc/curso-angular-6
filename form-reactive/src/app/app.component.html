@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div [formGroup]="usuarioForm">
+        <h3>Cadastro de usuário</h3>
+        <div formGroupName="dadosBasicos">
+          <div class="form-group">
+            <label for="login">Login</label>
+            <input type="text"
+            name="login" 
+            id="login" 
+            class="form-control"
+            formControlName="login">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input 
+            type="email" 
+            name="email" 
+            id="email" 
+            class="form-control"
+            formControlName="email">
+          </div>
+
+          <!-- <span *ngIf="!usuarioForm.get('dadosBasicos.email').valid && usuarioForm.get('dadosBasicos.email').touched">Informe um e-mail válido!</span> -->
+          <span *ngIf="emailInvalido">Informe um e-mail válido!</span>
+
+        </div>
+
+        <label for="genero">Gênero</label>
+        <div class="form-group">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label mr-2" *ngFor="let genero of generos">
+              <input class="form-check-input" 
+                type="radio" 
+                name="genero" 
+                id="genero" 
+                [value]="genero.valor"
+                formControlName="genero">
+              {{genero.descricao}}
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tipo">Tipo de Usuário</label>
+          <select id="tipo" class="form-control" name="tipo"
+            formControlName="tipo">
+            <option value="administrador">Administrador</option>
+            <option value="comum">Comum</option>
+          </select>
+        </div>
+
+        <!-- FormArray -->
+        <div formArrayName="telefones">
+          <h4>Telefones</h4>
+            <button type="button" 
+              class="btn btn-success"
+              (click)="adicionarTelefone()">Adicionar</button>
+          <div class="form-group mt-3"
+            *ngFor="let telefone of telefones; let i = index">
+            <label>Telefone {{i + 1}}</label>
+            <input type="text" class="form-control" [formControlName]="i">
+          </div>
+        </div>
+
+        <button class="btn btn-primary mt-3" type="button" (click)="enviar()">Enviar</button>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngIf="enviado">
+    <div class="col-sm-12">
+      <h4>Dados</h4>
+      <p>Login: {{usuario.login}}</p>
+      <p>E-mail: {{usuario.email}}</p>
+      <p>Gênero: {{usuario.genero}}</p>
+      <p>Tipo: {{usuario.tipo}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <app-cadastro (usuarioComumAdicionado)="adicionarUsuario('comum', $event)" (administradorAdicionado)="adicionarUsuario('administrador', $event)"></app-cadastro>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-primary mr-2" (click)="alterarUsuario()">Alterar</button>
+      <button type="button" class="btn btn-danger" (click)="removerUsuario()">Remover</button>
+
+      <app-usuario-card *ngFor="let usuario of usuarios" [loginUsuario]="usuario.login">
+        <h3>{{usuario.nome}}</h3>
+        <p>
+          <strong *ngIf="usuario.tipo == 'administrador'" style="color: green">Administrador</strong>
+          <em *ngIf="usuario.tipo == 'comum'" style="color: grey">Usuário comum</em>
+        </p>
+      </app-usuario-card>
+    </div>
+  </div>
+</div>
