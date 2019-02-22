@@ -31,19 +31,19 @@ export class UsuarioCardComponent implements OnInit {
   }
 
   ngAfterContentChecked() {
-    console.log('ngAfterContentChecked called!');
+    console.log('ngAfterContentChecked chamado!');
   }
 
   ngAfterViewInit() {
-    console.log('ngAfterViewInit called!');
+    console.log('ngAfterViewInit chamado!');
     // console.log('Text Content: ' + this.header.nativeElement.textContent);
   }
 
   ngAfterViewChecked() {
-    console.log('ngAfterViewChecked called!');
+    console.log('ngAfterViewChecked chamado!');
   }
 
   ngOnDestroy() {
-    console.log('ngOnDestroy called!');
+    console.log('ngOnDestroy chamado!');
   }
 }

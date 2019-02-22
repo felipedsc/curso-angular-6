@@ -9,7 +9,7 @@ export class AppComponent implements OnInit {
   numeros = [];
   numerosPares = [];
   somentePares = false;
-  value = 100;
+  valor = 100;
 
   ngOnInit() {
     for (let i = 1; i <= 8; i++) {
