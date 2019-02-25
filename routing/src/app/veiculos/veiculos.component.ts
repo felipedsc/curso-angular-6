@@ -20,7 +20,11 @@ export class VeiculosComponent implements OnInit {
   }
 
   recarregar() {
+    //Rota absoluta
     //alternar com pessoas
+    //this.router.navigate(['veiculos', '1']);
+
+    //relativa
     // this.router.navigate(['veiculos'], { relativeTo: this.route });
   }
 }

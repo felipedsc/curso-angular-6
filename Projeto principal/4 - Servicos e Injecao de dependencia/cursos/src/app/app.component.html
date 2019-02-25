@@ -1,0 +1,15 @@
+<app-header (navegacaoSelecionada)="sessaoAtual = $event"></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-materias *ngIf="sessaoAtual == 'materias'"></app-materias>
+      <app-cursos *ngIf="sessaoAtual == 'cursos'"></app-cursos>
+      <app-lista-alunos *ngIf="sessaoAtual == 'alunos'"></app-lista-alunos>
+
+      <ng-container *ngIf="!sessaoAtual">
+        <h3>Bem vindo ao Sistema de cursos</h3>
+      </ng-container>
+    </div>
+  </div>
+</div>

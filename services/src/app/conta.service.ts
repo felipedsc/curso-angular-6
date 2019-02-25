@@ -26,6 +26,8 @@ export class ContaService {
 
   adicionarUsuario(nome: string, situacao: string) {
     this.usuarios.push({ nome: nome, situacao: situacao });
+    this.usuarioAdicionado.emit(`Usuário ${nome} adicionado`);
+
     //loginService depois    
     this.loggingService.novaSituacaoDetectada(situacao);    
   }

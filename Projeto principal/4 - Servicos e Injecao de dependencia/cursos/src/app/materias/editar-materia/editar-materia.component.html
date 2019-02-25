@@ -1,0 +1,28 @@
+<form>
+    <div class="form-row">
+        <div class="col-12">
+            <h5>Nova/editar matéria</h5>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="Informe o nome da matéria"
+                    #nomeInput>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label for="horas">Horas</label>
+                <input type="number" class="form-control" name="horas" id="horas" #horasInput>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <input class="btn btn-primary mr-2" type="button" value="Adicionar" (click)="adicionar()">
+            <input class="btn btn-danger mr-2" type="button" value="Remover">
+            <input class="btn btn-light" type="button" value="Limpar">
+        </div>
+    </div>
+</form>

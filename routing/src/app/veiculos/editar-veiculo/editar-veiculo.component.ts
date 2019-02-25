@@ -59,7 +59,7 @@ export class EditarVeiculoComponent implements OnInit, CanComponentDeactivate {
     if ((this.veiculoAtualizado.placa !== this.veiculo.placa
       || this.veiculoAtualizado.tipo !== this.veiculo.tipo
       || this.veiculoAtualizado.situacao !== this.veiculo.situacao) && !this.alteracoesSalvas) {
-      return confirm('Deseja descartas as alterações?');
+      return confirm('Deseja descartar as alterações?');
     } else {
       return true;
     }

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-4">
+    <button type="button" class="btn btn-primary btn-block">Novo curso</button>
+
+    <hr class="mt-3 mb-3">
+
+    <app-lista-cursos></app-lista-cursos>
+  </div>
+
+  <div class="col-8">
+    <app-detalhe-curso *ngIf="cursoSelecionado; else favorSelecionar" [cursoSelecionado]="cursoSelecionado"></app-detalhe-curso>
+    <ng-template #favorSelecionar>
+      <p>Favor selecionar um curso</p>
+    </ng-template>
+  </div>
+</div>

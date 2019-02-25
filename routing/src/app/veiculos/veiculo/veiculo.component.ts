@@ -16,6 +16,7 @@ export class VeiculoComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    //colocar debugger e explicar motivo do +
     // const id = +this.route.snapshot.params["id"];
     // this.veiculo = this.veiculoService.obterVeiculo(id);
 
@@ -24,7 +25,7 @@ export class VeiculoComponent implements OnInit {
     //     this.veiculo = this.veiculoService.obterVeiculo(+params["id"]);
     //   });
 
-    //depois
+    //depois -> com resolver
     this.route.data
       .subscribe((data: Data) => {
         this.veiculo = data["veiculo"];
@@ -32,6 +33,7 @@ export class VeiculoComponent implements OnInit {
   }
 
   editar() {
+    //receber parametros no editar-veiculo!
     // this.router.navigate(['edit'], { relativeTo: this.route });
     //depois
     this.router.navigate(['edit'], { relativeTo: this.route, queryParamsHandling: 'preserve', preserveFragment: true });

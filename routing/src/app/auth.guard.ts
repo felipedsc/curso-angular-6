@@ -3,6 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateCh
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
+//CanActivate Child depois
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
 
