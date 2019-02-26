@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         }
       ));
 
+
+    //inicialmente sem subscription
     this.numerosSubscription = numeros.subscribe(
       (numero: number) => {
         console.log(numero);
