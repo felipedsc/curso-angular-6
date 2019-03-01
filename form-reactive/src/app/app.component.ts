@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   usuarioForm: FormGroup;
 
   ngOnInit() {
+    // criar telefones depois
     this.usuarioForm = new FormGroup({
       "dadosBasicos": new FormGroup({
         "login": new FormControl("teste", [Validators.required, this.loginsProibidos]),
@@ -37,7 +38,7 @@ export class AppComponent implements OnInit {
 
     this.usuarioForm.patchValue({
       "dadosBasicos": {
-        "email": "fdsc@email.com"
+        "email": "teste@email.com"
       }
     })
   }

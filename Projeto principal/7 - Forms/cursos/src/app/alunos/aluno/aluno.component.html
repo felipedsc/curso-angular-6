@@ -1,0 +1,37 @@
+<form>
+  <div class="form-row">
+    <div class="col-md-8 col-sm-12 form-group">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" placeholder="Informe o nome do aluno">
+    </div>
+
+    <div class="col-md-4 col-sm-12 form-group">
+      <label for="dataNascimento">Data de Nascimento</label>
+      <input bsDatepicker type="text" class="form-control">
+    </div>
+  </div>
+
+  <div class="form-row" *ngIf="caminhoFoto">
+    <div class="col-12 text-center">
+      <img [src]="caminhoFoto" name="caminhoFoto" class="img-fluid" style="max-height: 300px;">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-12 form-group">
+      <label for="">Caminho da foto</label>
+      <input type="text" class="form-control" [(ngModel)]="caminhoFoto" name="caminhoFoto">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-12 form-group">
+      <label for="">Curso</label>
+      <select class="custom-select">
+        <option value="1">Curso 1</option>
+        <option value="2">Curso 2</option>
+        <option value="3">Curso 3</option>
+      </select>
+    </div>
+  </div>
+</form>
