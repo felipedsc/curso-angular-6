@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Desmontração de Pipes</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <p>{{textoLowercase | uppercase}}</p>
+      <p>{{textoUppercase | lowercase}}</p>
+      <p>{{data | date:'dd/MM/yyyy' }}</p>
+      <p>{{dados | json}}</p>
+
+      <button type="button" class="btn btn-primary" (click)="dados.valor = dados.valor + 1">Incrementar valor</button>
+
+      <p>{{data | date | uppercase }}</p>
+
+
+      <p>{{textoLimitar | limitar:20}}</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-12">
+      <button type="button" class="btn btn-primary" (click)="adicionarTomate()">Adicionar Tomate</button>
+    </div>
+    <div class="col-12">
+      <label for="filtro">Filtro:</label>
+      <input type="text" class="form-control" [(ngModel)]="filtro">
+    </div>
+  </div>
+
+  <div class="row mt-1">
+    <div class="col-12">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let fruta of frutas | filter:filtro:'nome'">{{fruta.nome}} -
+          {{fruta.quantidade}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>
+    {{servidor}}
+  </p>
+  
+  <p>
+    {{servidor | async | json}}
+  </p>
+</div>
