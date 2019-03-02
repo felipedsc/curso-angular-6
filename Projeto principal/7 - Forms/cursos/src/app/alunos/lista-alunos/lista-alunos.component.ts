@@ -25,4 +25,10 @@ export class ListaAlunosComponent implements OnInit {
   novoAluno() {
     this.router.navigate(['/alunos', 'novo']);
   }
+
+  remover(id: number, $event: Event) {
+    $event.stopPropagation();
+    this.alunoService.removerAluno(id);
+    this.alunos = this.alunoService.obterAlunos();
+  }
 }

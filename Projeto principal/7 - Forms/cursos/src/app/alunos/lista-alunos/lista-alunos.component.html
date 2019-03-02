@@ -13,6 +13,7 @@
           <th>Nome</th>
           <th>Data de Nascimento</th>
           <th>Curso</th>
+          <th></th>
         </tr>
       </thead>
 
@@ -22,6 +23,7 @@
           <td>{{aluno.nome}}</td>
           <td>{{aluno.dataNascimento | date: 'dd/MM/yyyy'}}</td>
           <td>{{aluno.curso ? aluno.curso.nome : "Nenhum"}}</td>
+          <td><button type="button" class="btn btn-danger" (click)="remover(id, $event)">X</button></td>
         </tr>
       </tbody>
     </table>
