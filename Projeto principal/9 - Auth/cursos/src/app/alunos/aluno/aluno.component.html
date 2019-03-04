@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-12">
+    <h3>{{estaEditando ? "Editando registro" : "Novo registro"}}</h3>
+  </div>
+</div>
+<form (ngSubmit)="salvar()" #form="ngForm">
+  <div class="form-row mt-2">
+    <div class="col-md-8 col-sm-12 form-group">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" placeholder="Informe o nome do aluno" name="nome" [(ngModel)]="aluno.nome"
+        required>
+    </div>
+
+    <div class="col-md-4 col-sm-12 form-group">
+      <label for="dataNascimento">Data de Nascimento</label>
+      <input bsDatepicker type="text" class="form-control" name="dataNascimento" [(ngModel)]="aluno.dataNascimento"
+        required>
+    </div>
+  </div>
+
+  <div class="form-row" *ngIf="aluno.caminhoFoto">
+    <div class="col-12 text-center">
+      <img [src]="aluno.caminhoFoto" name="caminhoFoto" class="img-fluid" style="max-height: 300px;">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-12 form-group">
+      <label for="">Caminho da foto</label>
+      <input type="text" class="form-control" [(ngModel)]="aluno.caminhoFoto" name="caminhoFoto"
+        [(ngModel)]="aluno.caminhoFoto">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-12 form-group">
+      <label>Curso</label>
+      <select class="custom-select" name="curso" [(ngModel)]="aluno.curso" required>
+        <option [ngValue]="curso" *ngFor="let curso of cursos; let i = index">{{curso.nome}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 d-flex justify-content-end">
+      <button type="submit" class="btn btn-danger mr-2" (click)="cancelar()">Cancelar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Salvar</button>
+    </div>
+  </div>
+</form>
