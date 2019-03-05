@@ -1,0 +1,43 @@
+<form (ngSubmit)="salvar()" #form="ngForm">
+    <div class="form-row">
+        <div class="col-12">
+            <h5>Nova/editar matéria</h5>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" 
+                    class="form-control" 
+                    name="nome" id="nome" 
+                    placeholder="Informe o nome da matéria"
+                    ngModel
+                    required>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label for="horas">Horas</label>
+                <input 
+                    type="number" 
+                    class="form-control" 
+                    name="horas" id="horas" 
+                    ngModel
+                    required>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary mr-2" 
+                type="button"
+                (click)="salvar()"
+                [disabled]="!form.valid">{{ modoEdicao ? "Editar" : "Adicionar" }}</button>
+            <button class="btn btn-danger mr-2" type="button"
+                *ngIf="modoEdicao"
+                (click)="remover()">Remover</button>
+            <button class="btn btn-light" type="button"
+              (click)="limpar()">Limpar</button>
+        </div>
+    </div>
+</form>
