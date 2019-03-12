@@ -41,30 +41,32 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   meuObservable() {
-    const meuObservable: Observable<string> = Observable.create((observer: Observer<string>) => {
-      setTimeout(() => {
-        observer.next("Primeiro pacote");
-      }, 2000);
+    const meuObservable: Observable<string> =
+      Observable.create((observer: Observer<string>) => {
+        setTimeout(() => {
+          observer.next("Primeiro pacote");
+        }, 2000);
 
-      setTimeout(() => {
-        observer.next("Segundo pacote");
-      }, 4000);
+        setTimeout(() => {
+          observer.next("Segundo pacote");
+        }, 4000);
 
-      setTimeout(() => {
-        observer.error("Falha ao executar observable");
-        observer.complete();
-      }, 5000);
+        setTimeout(() => {
+          observer.error("Falha ao executar observable");
+          observer.complete();
+        }, 5000);
 
-      setTimeout(() => {
-        observer.next("Terceiro pacote");
-      }, 6000);
-    });
+        setTimeout(() => {
+          observer.next("Terceiro pacote");
+        }, 6000);
+      });
 
-    this.meuObservableSubscription = meuObservable.subscribe(
-      (data: string) => { console.log(data); },
-      (erro: string) => { console.log(erro); },
-      () => { console.log("Completo!") }
-    )
+    this.meuObservableSubscription = meuObservable
+      .subscribe(
+        (data: string) => console.log(data),
+        (erro: string) => console.log(erro),
+        () => console.log("Completo!")
+      )
   }
 
   buscaObservable() {
@@ -86,6 +88,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.numerosSubscription.unsubscribe();
     this.meuObservableSubscription.unsubscribe();
-    this.valorSubscription.unsubscribe();
+    // this.valorSubscription.unsubscribe();
   }
 }

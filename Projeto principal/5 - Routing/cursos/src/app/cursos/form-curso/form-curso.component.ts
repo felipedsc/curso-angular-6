@@ -30,7 +30,7 @@ export class FormCursoComponent implements OnInit {
 
     this.materias = this.materiaService.obterMaterias();
 
-    if (this.novoRegistro) {
+    if (!this.novoRegistro) {
       this.curso = this.cursoService.obterCurso(this.id);
     } else {
       this.curso = new Curso('', '', []);
