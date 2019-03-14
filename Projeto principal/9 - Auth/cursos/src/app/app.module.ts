@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, } from '@angular/core';
+import { NgModule, APP_INITIALIZER} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -28,6 +28,22 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { AuthService } from './auth/auth.service';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AuthGuard } from './auth/auth.guard';
+import * as firebase from 'firebase';
+
+export function configFactory() {
+  return () => {
+    var config = {
+      apiKey: "AIzaSyAxfbebs7ORmuE2bdpYsKuMyxTeG1c8aoo",
+      authDomain: "fdsc-itix.firebaseapp.com",
+      databaseURL: "https://fdsc-itix.firebaseio.com",
+      projectId: "fdsc-itix",
+      storageBucket: "fdsc-itix.appspot.com",
+      messagingSenderId: "1023788095095"
+    };
+
+    firebase.initializeApp(config);
+  }
+}
 
 @NgModule({
   imports: [
@@ -62,7 +78,12 @@ import { AuthGuard } from './auth/auth.guard';
     AlunoService,
     DadosService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: configFactory,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

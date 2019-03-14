@@ -15,15 +15,5 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    var config = {
-      apiKey: "AIzaSyAxfbebs7ORmuE2bdpYsKuMyxTeG1c8aoo",
-      authDomain: "fdsc-itix.firebaseapp.com",
-      databaseURL: "https://fdsc-itix.firebaseio.com",
-      projectId: "fdsc-itix",
-      storageBucket: "fdsc-itix.appspot.com",
-      messagingSenderId: "1023788095095"
-    };
-
-    firebase.initializeApp(config);
   }
 }
