@@ -1,0 +1,18 @@
+<app-editar-materia></app-editar-materia>
+
+<hr>
+
+<div class="row">
+  <div class="col-12">
+    <h5>Matérias cadastradas</h5>
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        *ngFor="let materia of materias; let i = index"
+        (click)="editarMateria(i)"
+        style="cursor: pointer">
+        {{materia.nome}}
+        <span class="badge badge-success badge-pill">{{materia.horas}}</span>
+      </a>
+    </div>
+  </div>
+</div>

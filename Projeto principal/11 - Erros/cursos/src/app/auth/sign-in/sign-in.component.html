@@ -1,0 +1,19 @@
+<form (ngSubmit)="login()">
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Informe seu email"
+          [(ngModel)]="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="">Senha</label>
+        <input type="password" class="form-control" name="senha" id="senha" placeholder="Informe sua senha"
+          [(ngModel)]="senha" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+  </div>
+</form>

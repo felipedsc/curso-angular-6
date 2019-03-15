@@ -3,7 +3,6 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: '/materias', pathMatch: 'full' },
-  //lazy loading
   { path: 'cursos', loadChildren: './cursos/cursos.module#CursosModule' }
 
 ];
